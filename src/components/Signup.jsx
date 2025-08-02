@@ -32,7 +32,7 @@ const Signup = () => {
 
   return (
     <div>
-        <h1 className="text-6xl text-center text-black-500 py-8 mt-3 md:text-5xl lg:text-6xl font-bold leading-tight">AURA SPEECH</h1>
+        <h1 className="text-6xl text-center text-purple-700 py-8 mt-3 md:text-5xl lg:text-6xl font-bold leading-tight">AURA SPEECH</h1>
     <div>
       <form onSubmit={handleSignUp} className="max-w-md m-auto pt-24">
         <h2 className="font-bold pb-2">Sign up today!</h2>
@@ -43,7 +43,7 @@ const Signup = () => {
           {/* <label htmlFor="Email">Email</label> */}
           <input
             onChange={(e) => setEmail(e.target.value)}
-            className="p-3 mt-6 shadow-lg"
+            className="p-3 mt-6 shadow-lg shadow-purple-100"
             type="email"
             name="email"
             id="email"
@@ -54,7 +54,7 @@ const Signup = () => {
           {/* <label htmlFor="Password">Password</label> */}
           <input
             onChange={(e) => setPassword(e.target.value)}
-            className="p-3 mt-6 shadow-lg"
+            className="p-3 mt-6 shadow-lg shadow-purple-100"
             type="password"
             name="password"
             id="password"

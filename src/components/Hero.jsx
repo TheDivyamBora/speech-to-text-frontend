@@ -16,7 +16,7 @@ const Hero = () => {
       setLoading(true);
       const formData = new FormData();
       formData.append('audio', audioFile);
-      const response = await fetch('https://divyam-speech-to-text-backend.onrender.com', {
+      const response = await fetch('https://divyam-speech-to-text-backend.onrender.com/upload', {
         method: 'POST',
         body: formData,
       });
@@ -75,8 +75,12 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="flex flex-col md:flex-row justify-between items-center px-4 sm:px-6 lg:px-8 pt-44 pb-16 container mx-auto">
-    <div className="max-w-4xl mx-auto bg-white rounded-xl shadow-xl p-6">
+    <section id="home" className="flex flex-col justify-between items-center px-4 sm:px-6 lg:px-8 pt-22 pb-16 container mx-auto">
+      <div className="text-center my-12 max-w-3xl">
+    <h1 className="text-4xl font-bold text-purple-700"> Feel The Aura In Your Speech </h1>
+    <p className="text-gray-600 mt-3 text-lg">Record your voice or upload an audio file to generate accurate transcriptions instantly.</p>
+  </div>
+    <div className="w-full max-w-6xl mx-auto bg-white rounded-2xl shadow-2xl p-10">
       {/* Toggle Buttons */}
       <div className="flex justify-center gap-4 mb-6">
         <button
@@ -87,7 +91,7 @@ const Hero = () => {
           }`}
           onClick={() => setActiveTab('record')}
         >
-          🎙️ Record Audio
+          Record Audio
         </button>
         <button
           className={`px-4 py-2 rounded-md font-semibold transition ${
@@ -97,14 +101,14 @@ const Hero = () => {
           }`}
           onClick={() => setActiveTab('upload')}
         >
-          📤 Upload File
+         Upload File
         </button>
       </div>
 
       {/* Record Panel */}
       {activeTab === 'record' && (
         <div className="border-2 border-dashed border-purple-400 rounded-xl p-6 text-center shadow-md">
-          <div className="text-purple-700 text-4xl mb-4">🎙️</div>
+          <div className="text-purple-700 text-4xl mb-4"></div>
           <h2 className="text-xl font-semibold text-gray-800 mb-2">Start Recording</h2>
           <p className="text-gray-600 mb-4">
             Click the record button to begin capturing your voice.
@@ -117,7 +121,7 @@ const Hero = () => {
                 : 'bg-purple-600 hover:bg-purple-700'
             }`}
           >
-            {isRecording ? '⏹️ Stop Recording' : '🎙️ Start Recording'}
+            {isRecording ? ' Stop Recording' : 'Start Recording'}
           </button>
         </div>
       )}
@@ -141,14 +145,14 @@ const Hero = () => {
             onClick={() => fileInputRef.current.click()}
             className="px-6 py-3 bg-purple-600 text-white rounded-lg font-semibold hover:bg-purple-700 transition"
           >
-            📤 Choose File
+            Choose File
           </button>
         </div>
       )}
 
       {/* Transcription Output */}
       <div className="bg-gray-100 p-4 rounded-xl shadow-inner max-h-60 overflow-y-auto relative mt-6">
-        <h2 className="text-lg font-semibold text-purple-700 mb-2">📝 Transcribed Text</h2>
+        <h2 className="text-lg font-semibold text-purple-700 mb-2"> Transcribed Text</h2>
         {loading ? (
           <p className="text-purple-600 animate-pulse">Transcribing audio...</p>
         ) : (
@@ -161,7 +165,7 @@ const Hero = () => {
             onClick={handleCopy}
             className="absolute top-2 right-2 text-sm text-purple-600 border border-purple-400 px-3 py-1 rounded hover:bg-purple-100"
           >
-            {copied ? '✅ Copied!' : '📋 Copy'}
+            {copied ? '✅ Copied!' : ' Copy'}
           </button>
         )}
       </div>
